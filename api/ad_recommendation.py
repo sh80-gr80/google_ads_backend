@@ -166,7 +166,10 @@ def get_ad_recommendation(
                 location_resource_names.append(geo_target_constant.resource_name)
 
             # get the first one that is the one selected by the user
-            geo_targets.append(location_resource_names[0])
+            if location_resource_names:
+                geo_targets.append(location_resource_names[0])
+            else:
+                print("No location resource names found.")
 
         print(geo_targets)
 

@@ -281,13 +281,17 @@ def sc_settings(
 
     for batch in response:
         for row in batch.results:
-            # the result will be in the format DayOfWeek.MONDAY so transform it
-            day = str(row.campaign_criterion.ad_schedule.day_of_week).split('.')[1]
-            # filter out those campaign criterion that are not ad schedule
-            if day != 'UNSPECIFIED':
-                data[f'{day}'] = day
-                data[f'{day}_start_hour'] = row.campaign_criterion.ad_schedule.start_hour
-                data[f'{day}_end_hour'] = row.campaign_criterion.ad_schedule.end_hour
+            print(f"day_of_week: {row.campaign_criterion.ad_schedule.day_of_week}")
+            if row.campaign_criterion.ad_schedule.day_of_week == 0:
+                print("Ad Scheduled not configured for campaign.")
+            else: 
+                # the result will be in the format DayOfWeek.MONDAY so transform it
+                day = str(row.campaign_criterion.ad_schedule.day_of_week).split('.')[1]
+                # filter out those campaign criterion that are not ad schedule
+                if day != 'UNSPECIFIED':
+                    data[f'{day}'] = day
+                    data[f'{day}_start_hour'] = row.campaign_criterion.ad_schedule.start_hour
+                    data[f'{day}_end_hour'] = row.campaign_criterion.ad_schedule.end_hour
 
     # append all the data to the campaign_settings object
     campaign_settings.append(data)

@@ -58,6 +58,14 @@ See [here](https://youtu.be/WvP3vtc_o7Q) a video tutorial on how to set up this 
 
 Clone this repo and the repo for the [frontend](https://github.com/fblascogarma/google_ads_frontend). To install the packages needed for the frontend, follow the instructions in the README file of that repo.
 
+To clone the repo, go to the folder where you want to have this project, and using your terminal write:
+
+> git clone https://github.com/fblascogarma/google_ads_backend.git
+
+You'll need a virtual environment in this folder, so if you haven't set that up yet, use your terminal to write:
+
+> python3 -m venv google_ads_backend
+
 Here are the instructions for the backend.
 
 1. Install of dependencies.
